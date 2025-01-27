@@ -38,7 +38,7 @@
             // 
             // comboBox1
             // 
-            comboBox1.BackColor = Color.FromArgb(255, 128, 255);
+            comboBox1.BackColor = Color.FromArgb(255, 192, 128);
             comboBox1.ForeColor = SystemColors.WindowText;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Plot", "Character", "Location" });
@@ -49,7 +49,7 @@
             // 
             // textBox1
             // 
-            textBox1.BackColor = Color.FromArgb(255, 128, 128);
+            textBox1.BackColor = Color.FromArgb(255, 224, 192);
             textBox1.Location = new Point(25, 57);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(198, 23);
@@ -58,7 +58,7 @@
             // 
             // textBox2
             // 
-            textBox2.BackColor = Color.FromArgb(255, 192, 192);
+            textBox2.BackColor = Color.FromArgb(255, 224, 192);
             textBox2.Location = new Point(239, 57);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(211, 23);
@@ -67,7 +67,7 @@
             // 
             // textBox3
             // 
-            textBox3.BackColor = Color.PeachPuff;
+            textBox3.BackColor = Color.FromArgb(255, 192, 128);
             textBox3.Location = new Point(26, 100);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";

@@ -62,7 +62,7 @@ namespace DnDM
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(192, 255, 255);
+            button1.BackColor = Color.FromArgb(255, 255, 192);
             button1.Location = new Point(14, 12);
             button1.Name = "button1";
             button1.Size = new Size(253, 61);
@@ -73,7 +73,7 @@ namespace DnDM
             // 
             // button2
             // 
-            button2.BackColor = Color.FromArgb(255, 192, 255);
+            button2.BackColor = Color.PowderBlue;
             button2.Location = new Point(286, 12);
             button2.Name = "button2";
             button2.Size = new Size(241, 61);

@@ -19,9 +19,9 @@ namespace DnDM
         {
             InitializeComponent();
 
-            comboBox1.SelectedIndex = 0;
-
-            if (name != "")
+            if (name == "")
+                comboBox1.SelectedIndex = 0;
+            else
             {
                 var text = File.ReadAllLines(path);
                 var index = -1;
@@ -30,6 +30,7 @@ namespace DnDM
                     if (text[i].Split('_')[1] == name)
                     { index = i; break; }
                 }
+                comboBox1.SelectedItem = text[index].Split('_')[0];
                 textBox1.Text = text[index].Split('_')[1];
                 textBox2.Text = text[index].Split('_')[2];
                 var dop = "";

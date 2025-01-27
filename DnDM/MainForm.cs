@@ -99,7 +99,8 @@ namespace DnDM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenNote(listBox1.Text.Split(": ")[1]);
+            if (listBox1.Text != null && listBox1.Text != "")
+                OpenNote(listBox1.Text.Split(": ")[1]);
         }
 
         private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
