@@ -19,6 +19,9 @@ namespace DnDM
         {
             InitializeComponent();
 
+            if (!Path.Exists(path))
+                path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\notes.txt";
+
             if (name == "")
                 comboBox1.SelectedIndex = 0;
             else
@@ -57,7 +60,14 @@ namespace DnDM
             {
                 if (index != -1)
                 {
-                    text[index] = newText;
+                    var t = text[0];
+                    text[0] = newText;
+                    for (var i = index; i > 1; i --)
+                    {
+                        text[i] = text[i - 1];
+                    }
+                    if(index != 0)
+                        text[1] = t;
                     File.WriteAllLines(path, text);
                 }
                 else

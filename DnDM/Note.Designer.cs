@@ -38,10 +38,10 @@
             // 
             // comboBox1
             // 
-            comboBox1.BackColor = Color.FromArgb(255, 192, 128);
+            comboBox1.BackColor = Color.FromArgb(192, 192, 255);
             comboBox1.ForeColor = SystemColors.WindowText;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Plot", "Character", "Location" });
+            comboBox1.Items.AddRange(new object[] { "Plot", "Character", "Location", "PastOneShots", "PastCampaign" });
             comboBox1.Location = new Point(25, 12);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(143, 25);
@@ -49,7 +49,8 @@
             // 
             // textBox1
             // 
-            textBox1.BackColor = Color.FromArgb(255, 224, 192);
+            textBox1.BackColor = Color.Navy;
+            textBox1.ForeColor = SystemColors.Info;
             textBox1.Location = new Point(25, 57);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(198, 23);
@@ -58,7 +59,8 @@
             // 
             // textBox2
             // 
-            textBox2.BackColor = Color.FromArgb(255, 224, 192);
+            textBox2.BackColor = Color.Navy;
+            textBox2.ForeColor = SystemColors.Info;
             textBox2.Location = new Point(239, 57);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(211, 23);
@@ -67,7 +69,7 @@
             // 
             // textBox3
             // 
-            textBox3.BackColor = Color.FromArgb(255, 192, 128);
+            textBox3.BackColor = Color.FromArgb(192, 192, 255);
             textBox3.Location = new Point(26, 100);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
@@ -103,7 +105,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 255, 192);
+            BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(479, 333);
             Controls.Add(button2);
             Controls.Add(button1);

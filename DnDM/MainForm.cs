@@ -17,8 +17,14 @@ namespace DnDM
         public MainForm()
         {
             InitializeComponent();
+            if (!Path.Exists(path))
+            {
+                path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\notes.txt";
+                if (!Path.Exists(path))
+                    File.WriteAllText(path, "");
+            }
             Names();
-            comboBox1.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 4;
             listBox1.DrawMode = DrawMode.OwnerDrawFixed;
             Note();
         }
@@ -72,11 +78,35 @@ namespace DnDM
             listBox1.Items.Clear();
 
             Names();
-            if (sort != "All")
+            if (sort != "All" && sort != "Active" && sort != "Past")
             {
                 var allItems = listBox1.Items.Cast<string>().ToList();
 
                 var filteredItems = allItems.Where(item => item.StartsWith(sort)).ToList();
+
+                listBox1.Items.Clear();
+                foreach (var item in filteredItems)
+                {
+                    listBox1.Items.Add(item);
+                }
+            }
+            if (sort == "Active")
+            {
+                var allItems = listBox1.Items.Cast<string>().ToList();
+
+                var filteredItems = allItems.Where(item => item.StartsWith("Plot") || item.StartsWith("Character") || item.StartsWith("Location")).ToList();
+
+                listBox1.Items.Clear();
+                foreach (var item in filteredItems)
+                {
+                    listBox1.Items.Add(item);
+                }
+            }
+            if (sort == "Past")
+            {
+                var allItems = listBox1.Items.Cast<string>().ToList();
+
+                var filteredItems = allItems.Where(item => item.StartsWith("PastOneShots") || item.StartsWith("PastCampeing")).ToList();
 
                 listBox1.Items.Clear();
                 foreach (var item in filteredItems)
@@ -114,13 +144,19 @@ namespace DnDM
                 switch (itemText.Split(": ")[0])
                 {
                     case "Plot":
-                        backgroundColor = Color.FromArgb(230, 155, 0);  // Оранжевый
+                        backgroundColor = Color.FromArgb(176, 255, 157);  // Зелёный
                         break;
                     case "Character":
-                        backgroundColor = Color.FromArgb(89, 209, 77);  // Зелёный
+                        backgroundColor = Color.FromArgb(255, 150, 79);  // Оранжевый
                         break;
                     case "Location":
-                        backgroundColor = Color.FromArgb(141, 90, 153); // Фиолетовый
+                        backgroundColor = Color.FromArgb(179, 158, 181); // Фиолетовый
+                        break;
+                    case "PastOneShots":
+                        backgroundColor = Color.White; // Белый
+                        break;
+                    case "PastCampaign":
+                        backgroundColor = Color.Silver; // Сероватый
                         break;
                     default:
                         backgroundColor = Color.White;  // Белый фон по умолчанию
@@ -133,10 +169,18 @@ namespace DnDM
 
                 // Отрисовываем фон
                 e.Graphics.FillRectangle(new SolidBrush(backgroundColor), e.Bounds);
+                if ((e.State & DrawItemState.Selected) != DrawItemState.Selected)
+                    // Отрисовываем текст
+                    e.Graphics.DrawString(itemText, e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+                else
+                    e.Graphics.DrawString(itemText, e.Font, Brushes.White, e.Bounds, StringFormat.GenericDefault);
 
-                // Отрисовываем текст
-                e.Graphics.DrawString(itemText, e.Font, Brushes.White, e.Bounds, StringFormat.GenericDefault);
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
